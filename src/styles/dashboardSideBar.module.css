@@ -1,0 +1,57 @@
+.sidebarContainer {
+    background: #FFFFFF;
+    border-right: 2px solid #E8E9EB;
+    font-family: 'Nunito Sans', sans-serif;
+    transition: width 0.3s ease;
+}
+
+.navItem {
+    height: 59px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #556476;
+    font-weight: 500;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none !important;
+    /*margin-bottom: 2px;*/
+}
+
+.navItem:hover {
+    background-color: #f8f9fa;
+    color: #4A58EC;
+}
+
+.navItemActive {
+    background: #F4F7FF;
+    color: #4A58EC !important;
+    border-right: 4px solid #4A58EC;
+}
+
+.navIcon {
+    font-size: 22px;
+    min-width: 22px;
+}
+
+.subNavItem {
+    font-size: 15px;
+    color: #556476;
+    padding-left: 10px;
+}
+
+.menuHeader {
+    font-size: 10px;
+    font-weight: 600;
+    color: #556476;
+    text-transform: uppercase;
+    margin-left: 12px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.hideText {
+    display: none;
+}

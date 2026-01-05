@@ -1,0 +1,69 @@
+/* TableStyles.module.css */
+
+/* Fonts */
+.tableFont {
+    font-family: 'Nunito Sans', sans-serif;
+    font-style: normal;
+}
+
+/* Header Cells (Frame 20, 22, 25, etc. - Top Row) */
+.headerCell {
+    background-color: #E8E9EB; /* Gray Light from Figma */
+    color: #556476; /* Gray Dark from Figma */
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
+    padding: 10px;
+    border: none;
+    vertical-align: middle;
+    height: 34px; /* Explicit height from Figma */
+    white-space: nowrap;
+}
+
+/* Body Cells (Frame 20, 22, 25 - Data Rows) */
+.bodyCell {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E8E9EB; /* Gray Light Border */
+    color: #172635; /* Text color from Figma */
+    font-weight: 400;
+    font-size: 10px; /* Small font size from Figma */
+    line-height: 14px;
+    padding: 10px;
+    vertical-align: middle;
+    height: 34px;
+}
+
+/* Specific styling for the Checkbox column container */
+.checkboxCell {
+    width: 42px; /* Fixed width from Figma Frame 21 */
+    text-align: center;
+    padding: 10px;
+}
+
+/* Action Column specific width */
+.actionCell {
+    width: 88px; /* Fixed width from Figma Frame 31 */
+    text-align: center;
+}
+
+/* Hover effect for rows */
+.tableRow:hover .bodyCell {
+    background-color: #F9FAFB;
+}
+
+/* Customizing the Bootstrap Table structure */
+.customTable {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.customTable thead th:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.customTable thead th:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
