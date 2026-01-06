@@ -338,7 +338,7 @@ export default function AllDocTable() {
             </button>
             <Link
               href="/attributes"
-              className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+              className="custom-icon-button button-danger px-3 py-1 rounded"
             >
               <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
             </Link>

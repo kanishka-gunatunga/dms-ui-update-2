@@ -648,7 +648,7 @@ const [selectedDocumentId, setSelectedDocumentId] = useState<number | null>(
                   handleCloseModal("deleteFileModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -802,7 +802,7 @@ const [selectedDocumentId, setSelectedDocumentId] = useState<number | null>(
                   setSelectedDocumentId(null);
                   setMetaTags([]);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -857,7 +857,7 @@ const [selectedDocumentId, setSelectedDocumentId] = useState<number | null>(
                           setSelectedDocumentId(null);
                           setSelectedDocumentName(null);
                         }}
-                        className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                        className="custom-icon-button button-danger px-3 py-1 rounded"
                       >
                         <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
                       </button>

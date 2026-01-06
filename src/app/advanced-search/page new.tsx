@@ -1971,7 +1971,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   setSelectedDocumentId(null);
                   setMetaTags([])
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -2383,7 +2383,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   handleCloseModal("deleteConfirmShareableLinkModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -2447,7 +2447,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   handleCloseModal("deleteFileModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -2507,7 +2507,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   handleCloseModal("removeIndexingModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -2561,7 +2561,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -2652,7 +2652,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -2791,7 +2791,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -4133,7 +4133,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                     handleCloseModal("shareDeleteModel");
                     setSelectedDocumentId(null);
                   }}
-                  className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                  className="custom-icon-button button-danger px-3 py-1 rounded"
                 >
                   <MdOutlineCancel fontSize={16} className="me-1" /> No
                 </button>
@@ -4690,7 +4690,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   setSelectedDocumentId(null);
                   setMetaTags([])
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
