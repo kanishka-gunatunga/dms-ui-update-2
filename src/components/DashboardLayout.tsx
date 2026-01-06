@@ -1282,7 +1282,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
                     </Nav>
                 </div>
 
-                <Container fluid className="mt-0">
+                <Container fluid className="mt-3">
                     {children}
                 </Container>
             </div>
@@ -1330,7 +1330,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
                         {/* <button onClick={closeDrawer}>X</button> */}
                     </div>
                     <Nav
-                        className="d-flex flex-column p-0 navbarAside custom-scroll"
+                        className="d-flex flex-column p-0 custom-scroll"
                         style={{
                             minHeight: "100svh",
                             height: "100svh",
@@ -1409,7 +1409,7 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({
                     </Nav>
                 </div>
 
-                <Container fluid>{children}</Container>
+                <Container fluid style={{marginTop:"2rem"}}>{children}</Container>
             </div>
 
             <ChatWindow/>
