@@ -378,7 +378,7 @@ export default function Home() {
                     style={{ minHeight: "100vh", maxHeight: "100%", overflowY: "scroll" }}
                 >
                     {/* Chart Section */}
-                    <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded">
+                    <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4">
                         <div className="d-flex flex-row align-items-center mb-3">
                             <Heading text="Documents by Category" color="#172635" />
                         </div>
@@ -441,7 +441,7 @@ export default function Home() {
 
                     {/* Calendar Section */}
                     <div
-                        className="d-flex flex-column bg-white p-2 p-lg-3 rounded mb-3"
+                        className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mb-3"
                         style={{ marginTop: "12px" }}
                     >
                         <div className="d-flex flex-row align-items-center">

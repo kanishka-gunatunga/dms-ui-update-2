@@ -50,7 +50,7 @@ export default function PageHelpersEditor({ params }: PageHelpersEditorProps) {
           className="custom-scroll w-100"
           style={{ minHeight: "100vh", maxHeight: "100%", overflowY: "scroll" }}
         >
-          <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3 w-100">
+          <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3 w-100">
             <div
               style={{ maxHeight: "480px", overflowY: "scroll" }}
               className="custom-scroll"

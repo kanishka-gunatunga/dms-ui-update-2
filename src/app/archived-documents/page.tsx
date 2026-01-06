@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import Heading from "@/components/common/Heading";
@@ -34,6 +36,7 @@ import { useUserContext } from "@/context/userContext";
 import LoadingBar from "@/components/common/LoadingBar";
 import { usePermissions } from "@/context/userPermissions";
 import { hasPermission } from "@/utils/permission";
+import CustomPagination from "@/components/CustomPagination";
 interface Category {
   category_name: string;
 }
@@ -316,7 +319,7 @@ export default function AllDocTable() {
         <div className="d-flex justify-content-between align-items-center pt-2">
           <Heading text="Archived Documents" color="#444" />
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div className="d-flex flex-column flex-lg-row">
             <div className="col-12 col-lg-6 d-flex flex-column flex-lg-row">
               <div className="input-group mb-3 pe-lg-2">
@@ -475,40 +478,49 @@ export default function AllDocTable() {
               </Table>
             </div>
 
-            <div className="d-flex flex-column flex-lg-row paginationFooter">
-              <div className="d-flex justify-content-between align-items-center">
-                <p className="pagintionText mb-0 me-2">Items per page:</p>
-                <Form.Select
-                  onChange={handleItemsPerPageChange}
-                  value={itemsPerPage}
-                  style={{
-                    width: "100px",
-                    padding: "5px 10px !important",
-                    fontSize: "12px",
-                  }}
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                </Form.Select>
-              </div>
-              <div className="d-flex flex-row align-items-center px-lg-5">
-                <div className="pagination-info" style={{ fontSize: "14px" }}>
-                  {startIndex} – {endIndex} of {totalItems}
-                </div>
+            {/*<div className="d-flex flex-column flex-lg-row paginationFooter">*/}
+            {/*  <div className="d-flex justify-content-between align-items-center">*/}
+            {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+            {/*    <Form.Select*/}
+            {/*      onChange={handleItemsPerPageChange}*/}
+            {/*      value={itemsPerPage}*/}
+            {/*      style={{*/}
+            {/*        width: "100px",*/}
+            {/*        padding: "5px 10px !important",*/}
+            {/*        fontSize: "12px",*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      <option value={10}>10</option>*/}
+            {/*      <option value={20}>20</option>*/}
+            {/*      <option value={30}>30</option>*/}
+            {/*    </Form.Select>*/}
+            {/*  </div>*/}
+            {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+            {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+            {/*      {startIndex} – {endIndex} of {totalItems}*/}
+            {/*    </div>*/}
 
-                <Pagination className="ms-3">
-                  <Pagination.Prev
-                    onClick={handlePrev}
-                    disabled={currentPage === 1}
+            {/*    <Pagination className="ms-3">*/}
+            {/*      <Pagination.Prev*/}
+            {/*        onClick={handlePrev}*/}
+            {/*        disabled={currentPage === 1}*/}
+            {/*      />*/}
+            {/*      <Pagination.Next*/}
+            {/*        onClick={handleNext}*/}
+            {/*        disabled={currentPage === totalPages}*/}
+            {/*      />*/}
+            {/*    </Pagination>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+
+              <div className="w-100 bg-white border-top">
+                  <CustomPagination
+                      totalItems={totalItems}
+                      itemsPerPage={itemsPerPage}
+                      currentPage={currentPage}
+                      onPageChange={setCurrentPage}
                   />
-                  <Pagination.Next
-                    onClick={handleNext}
-                    disabled={currentPage === totalPages}
-                  />
-                </Pagination>
               </div>
-            </div>
           </div>
         </div>
       </DashboardLayout>

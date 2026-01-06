@@ -35,6 +35,7 @@ import { fetchRemindersData } from "@/utils/dataFetchFunctions";
 import LoadingBar from "@/components/common/LoadingBar";
 import { usePermissions } from "@/context/userPermissions";
 import { hasPermission } from "@/utils/permission";
+import CustomPagination from "@/components/CustomPagination";
 
 
 
@@ -276,7 +277,7 @@ export default function AllDocTable() {
 
           </div>
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div>
             {isLoadingTable && <LoadingBar />}
           </div>
@@ -411,40 +412,49 @@ export default function AllDocTable() {
               
             </div>
 
-            <div className="d-flex flex-column flex-lg-row paginationFooter">
-              <div className="d-flex justify-content-between align-items-center">
-                <p className="pagintionText mb-0 me-2">Items per page:</p>
-                <Form.Select
-                  onChange={handleItemsPerPageChange}
-                  value={itemsPerPage}
-                  style={{
-                    width: "100px",
-                    padding: "5px 10px !important",
-                    fontSize: "12px",
-                  }}
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                </Form.Select>
-              </div>
-              <div className="d-flex flex-row align-items-center px-lg-5">
-                <div className="pagination-info" style={{ fontSize: "14px" }}>
-                  {startIndex} – {endIndex} of {totalItems}
-                </div>
+            {/*<div className="d-flex flex-column flex-lg-row paginationFooter">*/}
+            {/*  <div className="d-flex justify-content-between align-items-center">*/}
+            {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+            {/*    <Form.Select*/}
+            {/*      onChange={handleItemsPerPageChange}*/}
+            {/*      value={itemsPerPage}*/}
+            {/*      style={{*/}
+            {/*        width: "100px",*/}
+            {/*        padding: "5px 10px !important",*/}
+            {/*        fontSize: "12px",*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      <option value={10}>10</option>*/}
+            {/*      <option value={20}>20</option>*/}
+            {/*      <option value={30}>30</option>*/}
+            {/*    </Form.Select>*/}
+            {/*  </div>*/}
+            {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+            {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+            {/*      {startIndex} – {endIndex} of {totalItems}*/}
+            {/*    </div>*/}
 
-                <Pagination className="ms-3">
-                  <Pagination.Prev
-                    onClick={handlePrev}
-                    disabled={currentPage === 1}
+            {/*    <Pagination className="ms-3">*/}
+            {/*      <Pagination.Prev*/}
+            {/*        onClick={handlePrev}*/}
+            {/*        disabled={currentPage === 1}*/}
+            {/*      />*/}
+            {/*      <Pagination.Next*/}
+            {/*        onClick={handleNext}*/}
+            {/*        disabled={currentPage === totalPages}*/}
+            {/*      />*/}
+            {/*    </Pagination>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+
+              <div className="w-100 bg-white border-top">
+                  <CustomPagination
+                      totalItems={totalItems}
+                      itemsPerPage={itemsPerPage}
+                      currentPage={currentPage}
+                      onPageChange={setCurrentPage}
                   />
-                  <Pagination.Next
-                    onClick={handleNext}
-                    disabled={currentPage === totalPages}
-                  />
-                </Pagination>
               </div>
-            </div>
           </div>
         </div>
       </DashboardLayout>

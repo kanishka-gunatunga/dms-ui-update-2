@@ -51,6 +51,7 @@ import {
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 import 'react-quill/dist/quill.snow.css';
+import CustomPagination from "@/components/CustomPagination";
 
 interface Category {
   category_name: string;
@@ -1673,7 +1674,7 @@ export default function AllDocTable() {
         <div className="d-flex justify-content-between align-items-center pt-2">
           <Heading text="Advanced Search" color="#172635" />
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div className="d-flex flex-column flex-lg-row">
             <div className="col-12">
               <div className="input-group mb-3 metaBorder ">
@@ -1693,8 +1694,8 @@ export default function AllDocTable() {
                   className="input-group-text text-white"
                   id="basic-addon2"
                   style={{
-                    backgroundColor: "#683ab7",
-                    border: "solid 1px #683ab7 !important",
+                    backgroundColor: "#4A58EC",
+                    border: "solid 1px #4A58EC !important",
                     borderTopLeftRadius: "0px !important",
                     borderBottomLeftRadius: "0px !important",
                     fontSize: "14px",
@@ -1731,46 +1732,8 @@ export default function AllDocTable() {
               <Table hover responsive>
                 <thead className="sticky-header">
                   <tr>
-                    {/* <th className="position-relative">
-                      {selectedItems.length > 0 ? (
-                        <Button shape="circle" icon={<FaShareAlt />} onClick={() => handleOpenModal("allDocShareModel")} style={{ position: "absolute", top: "5px", left: "14px", backgroundColor: "#6777ef", color: "#fff" }} />
-                      ) : (
-                        <Checkbox
-                          checked={
-                            selectedItems.length === paginatedData.length && paginatedData.length > 0
-                          }
-                          indeterminate={
-                            selectedItems.length > 0 && selectedItems.length < paginatedData.length
-                          }
-                          onChange={(e) => handleSelectAll(e.target.checked)}
-                          style={{
-                            display: "flex",
-                            alignSelf: "center",
-                            justifySelf: "center",
-                          }}
-                        />
-                      )}
-
-                    </th> */}
                     <th className="position-relative">
-                      {/* {selectedItems.length > 0 ? (
-                                            <Button shape="circle" icon={<FaShareAlt />} onClick={() => handleOpenModal("allDocShareModel")} style={{ position: "absolute", top: "5px", left: "14px", backgroundColor: "#6777ef", color: "#fff" }} />
-                                          ) : (
-                                            <Checkbox
-                                              checked={
-                                                selectedItems.length === paginatedData.length && paginatedData.length > 0
-                                              }
-                                              indeterminate={
-                                                selectedItems.length > 0 && selectedItems.length < paginatedData.length
-                                              }
-                                              onChange={(e) => handleSelectAll(e.target.checked)}
-                                              style={{
-                                                display: "flex",
-                                                alignSelf: "center",
-                                                justifySelf: "center",
-                                              }} 
-                                            />
-                                          )} */}
+
                       {selectedItems.length > 0 ? (
                         <DropdownButton
                           id="dropdown-basic-button"
@@ -2029,30 +1992,6 @@ export default function AllDocTable() {
                           </DropdownButton>
                         </td>
 
-                        {/* <td>
-                          {item.name}
-                          {hoveredRow === item.id && item.document_preview && (
-                            <div
-                              className="preview-image"
-                              style={{
-                                position: "fixed",
-                                top: cursorPosition.y + 10,
-                                left: cursorPosition.x + 10,
-                                width: "200px",
-                                maxHeight: "200px",
-                                maxWidth: "200px",
-                                zIndex: 1000,
-                              }}
-                            >
-                              <Image
-                                src={item.document_preview}
-                                alt="Preview"
-                                width={200}
-                                height={200}
-                              />
-                            </div>
-                          )}
-                        </td> */}
                         <td
                           onMouseEnter={() => setHoveredRow(item.id)}
                           onMouseLeave={() => setHoveredRow(null)}
@@ -2103,40 +2042,49 @@ export default function AllDocTable() {
                 </tbody>
               </Table>
             </div>
-            <div className="d-flex flex-column flex-lg-row paginationFooter">
-              <div className="d-flex justify-content-between align-items-center">
-                <p className="pagintionText mb-0 me-2">Items per page:</p>
-                <Form.Select
-                  onChange={handleItemsPerPageChange}
-                  value={itemsPerPage}
-                  style={{
-                    width: "100px",
-                    padding: "5px 10px !important",
-                    fontSize: "12px",
-                  }}
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                </Form.Select>
-              </div>
-              <div className="d-flex flex-row align-items-center px-lg-5">
-                <div className="pagination-info" style={{ fontSize: "14px" }}>
-                  {startIndex} – {endIndex} of {totalItems}
-                </div>
+            {/*<div className="d-flex flex-column flex-lg-row paginationFooter">*/}
+            {/*  <div className="d-flex justify-content-between align-items-center">*/}
+            {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+            {/*    <Form.Select*/}
+            {/*      onChange={handleItemsPerPageChange}*/}
+            {/*      value={itemsPerPage}*/}
+            {/*      style={{*/}
+            {/*        width: "100px",*/}
+            {/*        padding: "5px 10px !important",*/}
+            {/*        fontSize: "12px",*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      <option value={10}>10</option>*/}
+            {/*      <option value={20}>20</option>*/}
+            {/*      <option value={30}>30</option>*/}
+            {/*    </Form.Select>*/}
+            {/*  </div>*/}
+            {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+            {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+            {/*      {startIndex} – {endIndex} of {totalItems}*/}
+            {/*    </div>*/}
 
-                <Pagination className="ms-3">
-                  <Pagination.Prev
-                    onClick={handlePrev}
-                    disabled={currentPage === 1}
+            {/*    <Pagination className="ms-3">*/}
+            {/*      <Pagination.Prev*/}
+            {/*        onClick={handlePrev}*/}
+            {/*        disabled={currentPage === 1}*/}
+            {/*      />*/}
+            {/*      <Pagination.Next*/}
+            {/*        onClick={handleNext}*/}
+            {/*        disabled={currentPage === totalPages}*/}
+            {/*      />*/}
+            {/*    </Pagination>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+
+              <div className="w-100 bg-white border-top">
+                  <CustomPagination
+                      totalItems={totalItems}
+                      itemsPerPage={itemsPerPage}
+                      currentPage={currentPage}
+                      onPageChange={setCurrentPage}
                   />
-                  <Pagination.Next
-                    onClick={handleNext}
-                    disabled={currentPage === totalPages}
-                  />
-                </Pagination>
               </div>
-            </div>
           </div>
         </div>
         {/* Edit Modal */}
@@ -2185,21 +2133,7 @@ export default function AllDocTable() {
             <p className="mb-1" style={{ fontSize: "14px" }}>
               Category
             </p>
-            {/* <DropdownButton
-              id="dropdown-category-button"
-              title={selectedCategory?.category_name || "Select Category"}
-              className="custom-dropdown-text-start text-start w-100"
-              onSelect={(value) => handleCategoryEditSelect(value || '')}
-            >
-              {categoryDropDownData.map((category) => (
-                <Dropdown.Item
-                  key={category.id}
-                  eventKey={category.id}
-                >
-                  {category.category_name}
-                </Dropdown.Item>
-              ))}
-            </DropdownButton> */}
+
             <DropdownButton
               id="dropdown-category-button"
               title={selectedCategory?.category_name || "Select Category"}
@@ -4009,40 +3943,50 @@ export default function AllDocTable() {
                     )}
                   </tbody>
                 </Table>
-                <div className="d-flex flex-column flex-sm-row paginationFooter py-0">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <p className="pagintionText mb-0 me-2">Items per page:</p>
-                    <Form.Select
-                      onChange={handleItemsPerPageChange}
-                      value={itemsPerPage}
-                      style={{
-                        width: "100px",
-                        padding: "5px 10px !important",
-                        fontSize: "12px",
-                      }}
-                    >
-                      <option value={10}>10</option>
-                      <option value={20}>20</option>
-                      <option value={30}>30</option>
-                    </Form.Select>
-                  </div>
-                  <div className="d-flex flex-row align-items-center px-lg-5">
-                    <div className="pagination-info" style={{ fontSize: "14px" }}>
-                      {startIndexShare} – {endIndexShare} of {totalItemsShare}
-                    </div>
+                {/*<div className="d-flex flex-column flex-sm-row paginationFooter py-0">*/}
+                {/*  <div className="d-flex justify-content-between align-items-center">*/}
+                {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+                {/*    <Form.Select*/}
+                {/*      onChange={handleItemsPerPageChange}*/}
+                {/*      value={itemsPerPage}*/}
+                {/*      style={{*/}
+                {/*        width: "100px",*/}
+                {/*        padding: "5px 10px !important",*/}
+                {/*        fontSize: "12px",*/}
+                {/*      }}*/}
+                {/*    >*/}
+                {/*      <option value={10}>10</option>*/}
+                {/*      <option value={20}>20</option>*/}
+                {/*      <option value={30}>30</option>*/}
+                {/*    </Form.Select>*/}
+                {/*  </div>*/}
+                {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+                {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+                {/*      {startIndexShare} – {endIndexShare} of {totalItemsShare}*/}
+                {/*    </div>*/}
 
-                    <Pagination className="ms-3">
-                      <Pagination.Prev
-                        onClick={handlePrev}
-                        disabled={currentPage === 1}
+                {/*    <Pagination className="ms-3">*/}
+                {/*      <Pagination.Prev*/}
+                {/*        onClick={handlePrev}*/}
+                {/*        disabled={currentPage === 1}*/}
+                {/*      />*/}
+                {/*      <Pagination.Next*/}
+                {/*        onClick={handleNext}*/}
+                {/*        disabled={currentPage === totalPagesShare}*/}
+                {/*      />*/}
+                {/*    </Pagination>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
+
+                  <div className="w-100 bg-white border-top">
+                      <CustomPagination
+                          totalItems={totalItems}
+                          itemsPerPage={itemsPerPage}
+                          currentPage={currentPage}
+                          onPageChange={setCurrentPage}
                       />
-                      <Pagination.Next
-                        onClick={handleNext}
-                        disabled={currentPage === totalPagesShare}
-                      />
-                    </Pagination>
                   </div>
-                </div>
+
               </div>
             </div>
           </Modal.Body>

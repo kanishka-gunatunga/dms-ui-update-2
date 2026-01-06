@@ -158,7 +158,7 @@ export default function AllDocTable() {
                 <div className="d-flex justify-content-between align-items-center pt-2">
                     <Heading text="Manage Role" color="#444" />
                 </div>
-                <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+                <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
 
                     <div className="d-flex flex-column  custom-scroll" style={{ maxHeight: "80vh", overflowY: "auto" }}>
                         <div className="d-flex col-12 col-md-6 flex-column mb-3">
@@ -241,7 +241,7 @@ export default function AllDocTable() {
                                 </button>
                                 <Link
                                     href={"/roles"}
-                                    className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                                    className="custom-icon-button button-danger px-3 py-1 rounded"
                                 >
                                     <MdOutlineCancel fontSize={16} className="me-1" /> No
                                 </Link>

@@ -93,7 +93,7 @@ export default function AllDocTable() {
                     <Heading text="AI Document Settings" color="#172635" />
                 </div>
 
-                <div className="d-flex flex-column bg-white p-3 rounded mt-3 mb-5">
+                <div className="d-flex flex-column bg-white p-3 rounded-4 mt-3 mb-5">
                     <label className="mb-2 fw-bold">Choose One Setting</label>
                     <Radio.Group
                         onChange={(e) => setSelectedOption(e.target.value)}
