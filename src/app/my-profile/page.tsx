@@ -344,7 +344,7 @@ const handleResetPassword = async () => {
                         </button>
                         <button
                             onClick={() => router.push("/")}
-                            className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                            className="custom-icon-button button-danger px-3 py-1 rounded"
                         >
                             <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
                         </button>
@@ -455,7 +455,7 @@ const handleResetPassword = async () => {
                             </button>
                             <button
                                 onClick={handleClose}
-                                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                                className="custom-icon-button button-danger px-3 py-1 rounded"
                             >
                                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
                             </button>

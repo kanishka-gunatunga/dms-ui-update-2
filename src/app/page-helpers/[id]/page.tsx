@@ -80,7 +80,7 @@ export default function PageHelpersEditor({ params }: PageHelpersEditorProps) {
                 </button>
                 <button
                   onClick={handleCancel}
-                  className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                  className="custom-icon-button button-danger px-3 py-1 rounded"
                 >
                   <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
                 </button>

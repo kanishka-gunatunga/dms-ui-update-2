@@ -522,7 +522,7 @@ export default function AllDocTable() {
                   handleCloseModal("modelRestore");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -584,7 +584,7 @@ export default function AllDocTable() {
                   handleCloseModal("modelDeletePermenent");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>

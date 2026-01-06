@@ -2632,7 +2632,7 @@ export default function AllDocTable() {
                   setSelectedDocumentId(null);
                   setMetaTags([])
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -3044,7 +3044,7 @@ export default function AllDocTable() {
                   handleCloseModal("deleteConfirmShareableLinkModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -3108,7 +3108,7 @@ export default function AllDocTable() {
                   handleCloseModal("deleteFileModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -3168,7 +3168,7 @@ export default function AllDocTable() {
                   handleCloseModal("removeIndexingModel");
                   setSelectedDocumentId(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>
@@ -3222,7 +3222,7 @@ export default function AllDocTable() {
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -3313,7 +3313,7 @@ export default function AllDocTable() {
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -3452,7 +3452,7 @@ export default function AllDocTable() {
                   setSelectedDocumentId(null);
                   setSelectedDocumentName(null);
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>
@@ -4793,7 +4793,7 @@ export default function AllDocTable() {
                     handleCloseModal("shareDeleteModel");
                     setSelectedDocumentId(null);
                   }}
-                  className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                  className="custom-icon-button button-danger px-3 py-1 rounded"
                 >
                   <MdOutlineCancel fontSize={16} className="me-1" /> No
                 </button>
@@ -5263,7 +5263,7 @@ export default function AllDocTable() {
                     handleCloseModal("reminderDeleteModel");
                     setSelectedDocumentId(null);
                   }}
-                  className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                  className="custom-icon-button button-danger px-3 py-1 rounded"
                 >
                   <MdOutlineCancel fontSize={16} className="me-1" /> No
                 </button>
@@ -5816,7 +5816,7 @@ export default function AllDocTable() {
                   setSelectedDocumentId(null);
                   setMetaTags([])
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
               </button>

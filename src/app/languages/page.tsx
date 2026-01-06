@@ -80,7 +80,7 @@ export default function AllDocTable() {
                             <MdOutlineEdit fontSize={16} className="me-1" />{" "}
                             Edit
                           </button>
-                          <button className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded">
+                          <button className="custom-icon-button button-danger px-3 py-1 rounded">
                             <AiOutlineDelete fontSize={16} className="me-1" />{" "}
                             Delete
                           </button>
