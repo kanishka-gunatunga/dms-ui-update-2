@@ -1955,7 +1955,7 @@ export default function AllDocTable() {
             )}
           </div>
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3 position-relative">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3 position-relative">
           <div className="d-flex flex-column flex-lg-row">
             <div className="col-12 col-lg-5 d-flex flex-column flex-lg-row">
               <div className="input-group mb-3 pe-lg-2">

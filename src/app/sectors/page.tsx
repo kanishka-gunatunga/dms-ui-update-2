@@ -132,7 +132,7 @@ const CategoryManagement: React.FC = () => {
           <Heading text="Sectors" color="#444" />
           <Button type="primary" className="addButton me-2 px-3 py-1" onClick={() => showModal('add')}>Add Root Category</Button>
         </div>
-        <div className="p-2 p-lg-5 bg-white w-100 rounded">
+        <div className="p-2 p-lg-5 bg-white w-100 rounded-4">
           <div className=''>
             <Tree
               checkable
@@ -161,7 +161,7 @@ const CategoryManagement: React.FC = () => {
                     danger
                     onClick={() => handleDeleteNode(node.key)}
                     style={{ marginLeft: 8 }}
-                    className="custom-icon-button button-danger text-white bg-danger px-3 py-2 rounded my-1 my-md-0"
+                    className="custom-icon-button button-danger px-3 py-2 rounded my-1 my-md-0"
                   >
                      <IoTrash fontSize={16} className="me-1" /> Delete
                   </Button>

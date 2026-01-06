@@ -134,7 +134,7 @@ export default function AllDocTable() {
       <div className="d-flex justify-content-between align-items-center pt-2">
         <Heading text="Role User" color="#172635" />
       </div>
-      <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+      <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
         <div className="role-user-dropdown">
           <p className="mb-1" style={{ fontSize: '14px' }}>Select Role</p>
           <DropdownButton

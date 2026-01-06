@@ -38,6 +38,7 @@ import { hasPermission } from "@/utils/permission";
 import { IoMdCloudDownload } from "react-icons/io";
 import { RoleDropdownItem, UserDropdownItem } from "@/types/types";
 import { fetchAndMapUserData, fetchRoleData } from "@/utils/dataFetchFunctions";
+import CustomPagination from "@/components/CustomPagination";
 
 interface Category {
   id: number;
@@ -713,7 +714,7 @@ export default function AllDocTable() {
               </div>
             )}
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div>
             <div
               style={{ maxHeight: "380px", overflowY: "auto" }}
@@ -784,7 +785,7 @@ export default function AllDocTable() {
                                       handleOpenModal("deleteModel");
                                       setSelectedItemId(item.id);
                                     }}
-                                    className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                                    className="custom-icon-button button-danger px-3 py-1 rounded"
                                   >
                                     <AiOutlineDelete
                                       fontSize={16}
@@ -853,7 +854,7 @@ export default function AllDocTable() {
                                                   );
                                                   setSelectedParentId(item.id);
                                                 }}
-                                                className="addButton bg-success text-white border border-success rounded px-3 py-1"
+                                                className="addButton border border-success rounded px-3 py-1"
                                               >
                                                 <FaPlus className="me-1" /> Add Child Category
                                               </button>
@@ -905,7 +906,7 @@ export default function AllDocTable() {
                                                     handleOpenModal("deleteModel");
                                                     setSelectedItemId(child.id);
                                                   }}
-                                                  className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                                                  className="custom-icon-button button-danger px-3 py-1 rounded"
                                                 >
                                                   <AiOutlineDelete
                                                     fontSize={16}
@@ -964,40 +965,49 @@ export default function AllDocTable() {
               </Table>
             </div>
 
-            <div className="d-flex flex-column flex-lg-row paginationFooter">
-              <div className="d-flex justify-content-between align-items-center">
-                <p className="pagintionText mb-0 me-2">Items per page:</p>
-                <Form.Select
-                  onChange={handleItemsPerPageChange}
-                  value={itemsPerPage}
-                  style={{
-                    width: "100px",
-                    padding: "5px 10px !important",
-                    fontSize: "12px",
-                  }}
-                >
-                  <option value={10}>10</option>
-                  <option value={20}>20</option>
-                  <option value={30}>30</option>
-                </Form.Select>
-              </div>
-              <div className="d-flex flex-row align-items-center px-lg-5">
-                <div className="pagination-info" style={{ fontSize: "14px" }}>
-                  {startIndex} – {endIndex} of {totalItems}
-                </div>
+            {/*<div className="d-flex flex-column flex-lg-row paginationFooter">*/}
+            {/*  <div className="d-flex justify-content-between align-items-center">*/}
+            {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+            {/*    <Form.Select*/}
+            {/*      onChange={handleItemsPerPageChange}*/}
+            {/*      value={itemsPerPage}*/}
+            {/*      style={{*/}
+            {/*        width: "100px",*/}
+            {/*        padding: "5px 10px !important",*/}
+            {/*        fontSize: "12px",*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      <option value={10}>10</option>*/}
+            {/*      <option value={20}>20</option>*/}
+            {/*      <option value={30}>30</option>*/}
+            {/*    </Form.Select>*/}
+            {/*  </div>*/}
+            {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+            {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+            {/*      {startIndex} – {endIndex} of {totalItems}*/}
+            {/*    </div>*/}
 
-                <Pagination className="ms-3">
-                  <Pagination.Prev
-                    onClick={handlePrev}
-                    disabled={currentPage === 1}
+            {/*    <Pagination className="ms-3">*/}
+            {/*      <Pagination.Prev*/}
+            {/*        onClick={handlePrev}*/}
+            {/*        disabled={currentPage === 1}*/}
+            {/*      />*/}
+            {/*      <Pagination.Next*/}
+            {/*        onClick={handleNext}*/}
+            {/*        disabled={currentPage === totalPages}*/}
+            {/*      />*/}
+            {/*    </Pagination>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+
+              <div className="w-100 bg-white border-top">
+                  <CustomPagination
+                      totalItems={totalItems}
+                      itemsPerPage={itemsPerPage}
+                      currentPage={currentPage}
+                      onPageChange={setCurrentPage}
                   />
-                  <Pagination.Next
-                    onClick={handleNext}
-                    disabled={currentPage === totalPages}
-                  />
-                </Pagination>
               </div>
-            </div>
           </div>
         </div>
         <ToastMessage
@@ -1151,9 +1161,9 @@ export default function AllDocTable() {
                     className="successButton"
                     style={{
                       padding: "10px",
-                      backgroundColor: "#4CAF50",
+                      backgroundColor: "#4A58EC",
                       color: "white",
-                      border: "1px solid #4CAF50",
+                      border: "1px solid #4A58EC",
                       borderLeft: "none",
                       borderTopRightRadius: "4px",
                       borderBottomRightRadius: "4px",
@@ -1248,7 +1258,7 @@ export default function AllDocTable() {
                       { level: prev.length + 1, id: "" },
                     ])
                   }
-                  className="btn btn-success text-white mb-3"
+                  className="btn button-success mb-3"
                   style={{ fontSize: "13px" }}
                 >
                   Add Approval Level
@@ -1382,26 +1392,27 @@ export default function AllDocTable() {
         </Modal.Body>
         <Modal.Footer>
           <div className="d-flex flex-row">
+              <button
+                  onClick={() => {
+                      handleCloseModal("addCategory");
+                      setattributeData([]);
+                      setcurrentAttribue('')
+                      setCategoryName("")
+                      setSelectedCategoryId("none")
+                      setDescription("")
+                      setEditData(initialState)
+                  }}
+                  className="custom-icon-button button-danger px-3 py-1 rounded me-2"
+              >
+                  <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
+              </button>
             <button
               onClick={() => handleAddCategory()}
-              className="custom-icon-button button-success px-3 py-1 rounded me-2"
+              className="custom-icon-button button-success px-3 py-1 rounded"
             >
               <IoSaveOutline fontSize={16} className="me-1" /> Save
             </button>
-            <button
-              onClick={() => {
-                handleCloseModal("addCategory");
-                setattributeData([]);
-                setcurrentAttribue('')
-                setCategoryName("")
-                setSelectedCategoryId("none")
-                setDescription("")
-                setEditData(initialState)
-              }}
-              className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
-            >
-              <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
-            </button>
+
           </div>
         </Modal.Footer>
       </Modal>
@@ -1551,9 +1562,9 @@ export default function AllDocTable() {
                     className="successButton"
                     style={{
                       padding: "10px",
-                      backgroundColor: "#4CAF50",
+                      backgroundColor: "#4A58EC",
                       color: "white",
-                      border: "1px solid #4CAF50",
+                      border: "1px solid #4A58EC",
                       borderLeft: "none",
                       borderTopRightRadius: "4px",
                       borderBottomRightRadius: "4px",
@@ -1648,7 +1659,7 @@ export default function AllDocTable() {
                       { level: prev.length + 1, id: "" },
                     ])
                   }
-                  className="btn btn-success text-white mb-3"
+                  className="btn button-success mb-3"
                   style={{ fontSize: "13px" }}
                 >
                   Add Approval Level
@@ -1779,26 +1790,29 @@ export default function AllDocTable() {
         </Modal.Body>
         <Modal.Footer>
           <div className="d-flex flex-row">
+
+              <button
+                  onClick={() => {
+                      handleCloseModal("addChildCategory");
+                      setattributeData([]);
+                      setcurrentAttribue('')
+                      setCategoryName("")
+                      setSelectedCategoryId("none")
+                      setDescription("")
+                      setEditData(initialState)
+                  }}
+                  className="custom-icon-button button-danger px-3 py-1 rounded me-2"
+              >
+                  <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
+              </button>
+
             <button
               onClick={() => handleAddChildCategory()}
-              className="custom-icon-button button-success px-3 py-1 rounded me-2"
+              className="custom-icon-button button-success px-3 py-1 rounded"
             >
               <IoSaveOutline fontSize={16} className="me-1" /> Save
             </button>
-            <button
-              onClick={() => {
-                handleCloseModal("addChildCategory");
-                setattributeData([]);
-                setcurrentAttribue('')
-                setCategoryName("")
-                setSelectedCategoryId("none")
-                setDescription("")
-                setEditData(initialState)
-              }}
-              className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
-            >
-              <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
-            </button>
+
           </div>
         </Modal.Footer>
       </Modal>
@@ -1959,9 +1973,9 @@ export default function AllDocTable() {
                     className="successButton"
                     style={{
                       padding: "10px",
-                      backgroundColor: "#4CAF50",
+                      backgroundColor: "#4A58EC",
                       color: "white",
-                      border: "1px solid #4CAF50",
+                      border: "1px solid #4A58EC",
                       borderLeft: "none",
                       borderTopRightRadius: "4px",
                       borderBottomRightRadius: "4px",
@@ -2059,7 +2073,7 @@ export default function AllDocTable() {
                       { level: prev.length + 1, id: "" },
                     ])
                   }
-                  className="btn btn-success text-white mb-3"
+                  className="btn button-success mb-3"
                   style={{ fontSize: "13px" }}
                 >
                   Add Approval Level
@@ -2186,26 +2200,27 @@ export default function AllDocTable() {
         </Modal.Body>
         <Modal.Footer>
           <div className="d-flex flex-row">
+              <button
+                  onClick={() => {
+                      handleCloseModal("editModel");
+                      setattributeData([]);
+                      setcurrentAttribue('')
+                      setCategoryName("")
+                      setSelectedCategoryId("none")
+                      setDescription("")
+                      setEditData(initialState)
+                  }}
+                  className="custom-icon-button button-danger px-3 py-1 rounded me-2"
+              >
+                  <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
+              </button>
             <button
               onClick={() => handleEditCategory()}
-              className="custom-icon-button button-success px-3 py-1 rounded me-2"
+              className="custom-icon-button button-success px-3 py-1 rounded"
             >
               <IoSaveOutline fontSize={16} className="me-1" /> Save
             </button>
-            <button
-              onClick={() => {
-                handleCloseModal("editModel");
-                setattributeData([]);
-                setcurrentAttribue('')
-                setCategoryName("")
-                setSelectedCategoryId("none")
-                setDescription("")
-                setEditData(initialState)
-              }}
-              className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
-            >
-              <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
-            </button>
+
           </div>
         </Modal.Footer>
       </Modal>
@@ -2247,7 +2262,7 @@ export default function AllDocTable() {
                 onClick={() => {
                   handleCloseModal("deleteModel");
                 }}
-                className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                className="custom-icon-button button-danger px-3 py-1 rounded"
               >
                 <MdOutlineCancel fontSize={16} className="me-1" /> No
               </button>

@@ -237,7 +237,7 @@ const handleRoleSelect = (roleId: string) => {
           <Heading text="Manage Users" color="#444" />
         </div>
 
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div
             style={{ maxHeight: "380px", overflowY: "auto" }}
             className="custom-scroll"
@@ -432,7 +432,7 @@ const handleRoleSelect = (roleId: string) => {
             </button>
             <button
               onClick={() => router.push("/users")}
-              className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+              className="custom-icon-button button-danger px-3 py-1 rounded"
             >
               <MdOutlineCancel fontSize={16} className="me-1" /> Cancel
             </button>

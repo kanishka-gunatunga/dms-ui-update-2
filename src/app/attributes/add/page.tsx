@@ -125,7 +125,7 @@ export default function AllDocTable() {
           <Heading text="Add Attributes" color="#444" />
         </div>
 
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div
             style={{
               maxHeight: "380px",

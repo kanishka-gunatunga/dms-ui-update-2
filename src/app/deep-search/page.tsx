@@ -51,6 +51,7 @@ import {
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 import 'react-quill/dist/quill.snow.css';
+import CustomPagination from "@/components/CustomPagination";
 
 interface Category {
   category_name: string;
@@ -1678,7 +1679,7 @@ const [generatedID, setGeneratedID] =useState<number>(0);
         <div className="d-flex justify-content-between align-items-center pt-2">
           <Heading text="Deep Search" color="#444" />
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div className="d-flex flex-column flex-lg-row">
             <div className="col-12">
               <div className="input-group mb-3 metaBorder ">
@@ -1698,8 +1699,8 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                   className="input-group-text text-white"
                   id="basic-addon2"
                   style={{
-                    backgroundColor: "#683ab7",
-                    border: "solid 1px #683ab7 !important",
+                    backgroundColor: "#4A58EC",
+                    border: "solid 1px #4A58EC !important",
                     borderTopLeftRadius: "0px !important",
                     borderBottomLeftRadius: "0px !important",
                     fontSize: "14px",
@@ -3679,40 +3680,49 @@ const [generatedID, setGeneratedID] =useState<number>(0);
                     )}
                   </tbody>
                 </Table>
-                <div className="d-flex flex-column flex-sm-row paginationFooter py-0">
-                  <div className="d-flex justify-content-between align-items-center">
-                    <p className="pagintionText mb-0 me-2">Items per page:</p>
-                    <Form.Select
-                      onChange={handleItemsPerPageChange}
-                      value={itemsPerPage}
-                      style={{
-                        width: "100px",
-                        padding: "5px 10px !important",
-                        fontSize: "12px",
-                      }}
-                    >
-                      <option value={10}>10</option>
-                      <option value={20}>20</option>
-                      <option value={30}>30</option>
-                    </Form.Select>
-                  </div>
-                  <div className="d-flex flex-row align-items-center px-lg-5">
-                    <div className="pagination-info" style={{ fontSize: "14px" }}>
-                      {startIndexShare} – {endIndexShare} of {totalItemsShare}
-                    </div>
+                {/*<div className="d-flex flex-column flex-sm-row paginationFooter py-0">*/}
+                {/*  <div className="d-flex justify-content-between align-items-center">*/}
+                {/*    <p className="pagintionText mb-0 me-2">Items per page:</p>*/}
+                {/*    <Form.Select*/}
+                {/*      onChange={handleItemsPerPageChange}*/}
+                {/*      value={itemsPerPage}*/}
+                {/*      style={{*/}
+                {/*        width: "100px",*/}
+                {/*        padding: "5px 10px !important",*/}
+                {/*        fontSize: "12px",*/}
+                {/*      }}*/}
+                {/*    >*/}
+                {/*      <option value={10}>10</option>*/}
+                {/*      <option value={20}>20</option>*/}
+                {/*      <option value={30}>30</option>*/}
+                {/*    </Form.Select>*/}
+                {/*  </div>*/}
+                {/*  <div className="d-flex flex-row align-items-center px-lg-5">*/}
+                {/*    <div className="pagination-info" style={{ fontSize: "14px" }}>*/}
+                {/*      {startIndexShare} – {endIndexShare} of {totalItemsShare}*/}
+                {/*    </div>*/}
 
-                    <Pagination className="ms-3">
-                      <Pagination.Prev
-                        onClick={handlePrev}
-                        disabled={currentPage === 1}
+                {/*    <Pagination className="ms-3">*/}
+                {/*      <Pagination.Prev*/}
+                {/*        onClick={handlePrev}*/}
+                {/*        disabled={currentPage === 1}*/}
+                {/*      />*/}
+                {/*      <Pagination.Next*/}
+                {/*        onClick={handleNext}*/}
+                {/*        disabled={currentPage === totalPagesShare}*/}
+                {/*      />*/}
+                {/*    </Pagination>*/}
+                {/*  </div>*/}
+                {/*</div>*/}
+
+                  <div className="w-100 bg-white border-top">
+                      <CustomPagination
+                          totalItems={totalItems}
+                          itemsPerPage={itemsPerPage}
+                          currentPage={currentPage}
+                          onPageChange={setCurrentPage}
                       />
-                      <Pagination.Next
-                        onClick={handleNext}
-                        disabled={currentPage === totalPagesShare}
-                      />
-                    </Pagination>
                   </div>
-                </div>
               </div>
             </div>
           </Modal.Body>

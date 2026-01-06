@@ -96,7 +96,7 @@ export default function AllDocTable() {
 
         </div>
 
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
           <div>
             <div
               style={{

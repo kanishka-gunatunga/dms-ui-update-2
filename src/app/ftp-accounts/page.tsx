@@ -358,7 +358,7 @@ export default function AllDocTable() {
         <div className="d-flex justify-content-between align-items-center pt-2">
           <Heading text="Enable AD Login" color="#444" />
         </div>
-        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3  mb-5">
+        <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3  mb-5">
           <div>
             <Checkbox checked={isCheckedAD} onChange={handleCheckboxChangeAD}>
               Enable AD Login

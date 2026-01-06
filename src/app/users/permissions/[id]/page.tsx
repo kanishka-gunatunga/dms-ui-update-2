@@ -4,15 +4,16 @@
 import Heading from "@/components/common/Heading";
 import DashboardLayout from "@/components/DashboardLayout";
 import useAuth from "@/hooks/useAuth";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import LoadingSpinner from "@/components/common/LoadingSpinner";
-import { getWithAuth, postWithAuth } from "@/utils/apiClient";
-import { IoSave } from "react-icons/io5";
-import { MdOutlineCancel } from "react-icons/md";
+import {getWithAuth, postWithAuth} from "@/utils/apiClient";
+import {IoSave} from "react-icons/io5";
+import {MdOutlineCancel} from "react-icons/md";
 import Link from "next/link";
-import { Checkbox, Divider } from "antd";
-import { useParams, useRouter } from 'next/navigation';
+import {Checkbox, Divider} from "antd";
+import {useParams, useRouter} from 'next/navigation';
 import ToastMessage from "@/components/common/Toast";
+
 // import { useUserContext } from "@/context/userContext";
 
 interface Props {
@@ -20,8 +21,8 @@ interface Props {
 }
 
 
-export default function AllDocTable({ params }: Props) {
-    const { id } = useParams();
+export default function AllDocTable({params}: Props) {
+    const {id} = useParams();
     // const { email } = useUserContext();
     const router = useRouter();
 
@@ -35,10 +36,10 @@ export default function AllDocTable({ params }: Props) {
 
     const fetchRoleData = async (id: string) => {
         try {
-            console.log(id , "user id")
+            console.log(id, "user id")
             const response = await getWithAuth(`role-details/${id}`);
 
-            console.log("get role details: ",response)
+            console.log("get role details: ", response)
 
             if (response.status === "fail") {
             } else {
@@ -47,7 +48,7 @@ export default function AllDocTable({ params }: Props) {
                 setRoleName(roleData.role_name);
                 setRoleName(response.role_name);
 
-                console.log("role name: ",response.role_name)
+                console.log("role name: ", response.role_name)
                 const parsedPermissions = JSON.parse(roleData.permissions || "[]");
 
                 const initialSelectedGroups: { [key: string]: string[] } = {};
@@ -78,34 +79,52 @@ export default function AllDocTable({ params }: Props) {
 
 
     if (!mounted || !id) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner/>;
 
     }
 
     if (!isAuthenticated) {
-        return <LoadingSpinner />;
+        return <LoadingSpinner/>;
     }
 
     const allGroups = [
-        { name: "Dashboard", items: ["View Dashboard"] },
-        { name: "All Documents", items: ["View Documents", "Create Document", "Edit Document", "Delete Document", "Archive Document", "Add Reminder", "Share Document", "Download Document", "Send Email", "Manage Sharable Link", "AI Options", "Upload New Version file", "Version History", "Comment", "Remove From Search"] },        { name: "Assigned Documents", items: ["Create Document", "Edit Document", "Share Document", "Upload New Version", "Delete Document", "Send Email", "Manage Sharable Link"] },
-        { name: "Archived Documents", items: ["View Documents", "Restore Document", "Delete Document"] },
-        { name: "Assigned Documents", items: ["Create Document", "Edit Document", "Share Document", "Upload New Version", "Delete Document", "Send Email", "Manage Sharable Link", "Upload New Version file", "Version History", "Comment", "Remove From Search", "Download", "Add Reminder", "Archive"] },
-        { name: "Advanced Search", items: ["Advanced Search"] },
-        { name: "Deep Search", items: ["Deep Search", "Add Indexing", "Remove Indexing"] },
-        { name: "Document Categories", items: ["Manage Document Category"] },
-        { name: "Bulk Upload", items: ["View Bulk Upload", "Delete Bulk Upload", "Create Bulk Upload", "Edit Bulk Upload",] },
-        { name: "FTP Accounts", items: ["View FTP Accounts", "Delete FTP Accounts", "Create FTP Accounts", "Edit FTP Accounts",] },
-        { name: "Attributes", items: ["View Attributes", "Add Attributes", "Edit Attributes", "Delete Attributes"] },
-        { name: "Sectors", items: ["Manage Sectors"] },
-        { name: "Documents Audit Trail", items: ["View Document Audit Trail"] },
-        { name: "User", items: ["View Users", "Create User", "Edit User", "Delete User", "Reset Password", "Assign User Role", "Assign Permission"] },
-        { name: "Role", items: ["View Roles", "Create Role", "Edit Role", "Delete Role"] },
-        { name: "Email", items: ["Manage SMTP Settings"] },
-        { name: "Settings", items: ["Manage Languages", "Storage Settings", "Manage Company Profile"] },
-        { name: "Reminder", items: ["View Reminders", "Create Reminder", "Edit Reminder", "Delete Reminder"] },
-        { name: "Login Audits", items: ["View Login Audit Logs"] },
-        { name: "Page Helpers", items: ["Manage Page Helper"] },
+        {name: "Dashboard", items: ["View Dashboard"]},
+        {
+            name: "All Documents",
+            items: ["View Documents", "Create Document", "Edit Document", "Delete Document", "Archive Document", "Add Reminder", "Share Document", "Download Document", "Send Email", "Manage Sharable Link", "AI Options", "Upload New Version file", "Version History", "Comment", "Remove From Search"]
+        }, {
+            name: "Assigned Documents",
+            items: ["Create Document", "Edit Document", "Share Document", "Upload New Version", "Delete Document", "Send Email", "Manage Sharable Link"]
+        },
+        {name: "Archived Documents", items: ["View Documents", "Restore Document", "Delete Document"]},
+        {
+            name: "Assigned Documents",
+            items: ["Create Document", "Edit Document", "Share Document", "Upload New Version", "Delete Document", "Send Email", "Manage Sharable Link", "Upload New Version file", "Version History", "Comment", "Remove From Search", "Download", "Add Reminder", "Archive"]
+        },
+        {name: "Advanced Search", items: ["Advanced Search"]},
+        {name: "Deep Search", items: ["Deep Search", "Add Indexing", "Remove Indexing"]},
+        {name: "Document Categories", items: ["Manage Document Category"]},
+        {
+            name: "Bulk Upload",
+            items: ["View Bulk Upload", "Delete Bulk Upload", "Create Bulk Upload", "Edit Bulk Upload",]
+        },
+        {
+            name: "FTP Accounts",
+            items: ["View FTP Accounts", "Delete FTP Accounts", "Create FTP Accounts", "Edit FTP Accounts",]
+        },
+        {name: "Attributes", items: ["View Attributes", "Add Attributes", "Edit Attributes", "Delete Attributes"]},
+        {name: "Sectors", items: ["Manage Sectors"]},
+        {name: "Documents Audit Trail", items: ["View Document Audit Trail"]},
+        {
+            name: "User",
+            items: ["View Users", "Create User", "Edit User", "Delete User", "Reset Password", "Assign User Role", "Assign Permission"]
+        },
+        {name: "Role", items: ["View Roles", "Create Role", "Edit Role", "Delete Role"]},
+        {name: "Email", items: ["Manage SMTP Settings"]},
+        {name: "Settings", items: ["Manage Languages", "Storage Settings", "Manage Company Profile"]},
+        {name: "Reminder", items: ["View Reminders", "Create Reminder", "Edit Reminder", "Delete Reminder"]},
+        {name: "Login Audits", items: ["View Login Audit Logs"]},
+        {name: "Page Helpers", items: ["Manage Page Helper"]},
     ];
 
     //   const permissions = usePermissions();
@@ -127,7 +146,7 @@ export default function AllDocTable({ params }: Props) {
 
     const handleGroupSelect = (checked: boolean, groupName: string, groupItems: string[]) => {
         setSelectedGroups((prev) => {
-            const updatedGroups: { [key: string]: string[] } = { ...prev };
+            const updatedGroups: { [key: string]: string[] } = {...prev};
 
             if (checked) {
                 updatedGroups[groupName] = groupItems;
@@ -141,7 +160,7 @@ export default function AllDocTable({ params }: Props) {
 
     const handleIndividualSelect = (groupName: string, value: string, checked: boolean) => {
         setSelectedGroups((prev) => {
-            const updatedGroups: { [key: string]: string[] } = { ...prev };
+            const updatedGroups: { [key: string]: string[] } = {...prev};
             const groupItems = updatedGroups[groupName] || [];
 
             if (checked) {
@@ -171,11 +190,11 @@ export default function AllDocTable({ params }: Props) {
             formData.append("role_name", roleName);
             formData.append("permissions", JSON.stringify(selectedArray));
 
-            console.log("permission: " , roleName ,  JSON.stringify(selectedArray))
+            console.log("permission: ", roleName, JSON.stringify(selectedArray))
 
             const response = await postWithAuth(`role-details/${id}`, formData);
 
-console.log("permission res: ",response)
+            console.log("permission res: ", response)
 
 
             if (response.status === "success") {
@@ -204,12 +223,12 @@ console.log("permission res: ",response)
         <>
             <DashboardLayout>
                 <div className="d-flex justify-content-between align-items-center pt-2">
-                    <Heading text={`User Page Permission To ${roleName}`} color="#444" />
+                    <Heading text={`User Page Permission To ${roleName}`} color="#444"/>
                 </div>
-                <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded mt-3">
+                <div className="d-flex flex-column bg-white p-2 p-lg-3 rounded-4 mt-3">
 
-                    <div className="d-flex flex-column  custom-scroll" style={{ maxHeight: "80vh", overflowY: "auto" }}>
-                        <Heading text="Permission" color="#444" />
+                    <div className="d-flex flex-column  custom-scroll" style={{maxHeight: "80vh", overflowY: "auto"}}>
+                        <Heading text="Permission" color="#444"/>
                         <div className="mt-2">
                             <Checkbox
                                 checked={Object.keys(selectedGroups).length === allGroups.length}
@@ -221,7 +240,7 @@ console.log("permission res: ",response)
                             >
                                 Select All
                             </Checkbox>
-                            <Divider />
+                            <Divider/>
 
                             {allGroups.map((group, groupIndex) => (
                                 <div key={groupIndex} className="mb-4">
@@ -232,11 +251,11 @@ console.log("permission res: ",response)
                                             selectedGroups[group.name]?.length < group.items.length
                                         }
                                         onChange={(e) => handleGroupSelect(e.target.checked, group.name, group.items)}
-                                        style={{ fontWeight: "700" }}
+                                        style={{fontWeight: "700"}}
                                     >
                                         {group.name}
                                     </Checkbox>
-                                    <div style={{ marginLeft: "25px" }}>
+                                    <div style={{marginLeft: "25px"}}>
                                         {group.items.map((item, itemIndex) => (
                                             <Checkbox
                                                 key={itemIndex}
@@ -249,7 +268,7 @@ console.log("permission res: ",response)
                                     </div>
                                 </div>
                             ))}
-                            <Divider />
+                            <Divider/>
 
                             <div className="d-flex flex-row"
                             >
@@ -257,13 +276,13 @@ console.log("permission res: ",response)
                                     onClick={() => handleAddRolePermission()}
                                     className="custom-icon-button button-success px-3 py-1 rounded me-2"
                                 >
-                                    <IoSave fontSize={16} className="me-1" /> Yes
+                                    <IoSave fontSize={16} className="me-1"/> Yes
                                 </button>
                                 <Link
                                     href={"/roles"}
-                                    className="custom-icon-button button-danger text-white bg-danger px-3 py-1 rounded"
+                                    className="custom-icon-button button-danger px-3 py-1 rounded"
                                 >
-                                    <MdOutlineCancel fontSize={16} className="me-1" /> No
+                                    <MdOutlineCancel fontSize={16} className="me-1"/> No
                                 </Link>
                             </div>
                         </div>
